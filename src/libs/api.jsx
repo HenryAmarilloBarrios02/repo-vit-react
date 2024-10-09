@@ -1,4 +1,6 @@
-export const getApi = () => {
-    const dataApi = import.meta.env.VITE_API_URL
-    return dataApi
+import authApi from './axios'
+
+export const getData = async (endpoint) => {
+    const res = await authApi.get(`/api/v1/${endpoint}`)
+    return res.data
 }
